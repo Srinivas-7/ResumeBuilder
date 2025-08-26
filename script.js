@@ -1,0 +1,1 @@
+alert("Enter the details to get registered!")
