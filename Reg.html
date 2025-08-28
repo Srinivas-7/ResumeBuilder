@@ -10,23 +10,27 @@
 </head>
 <body>
     <!-- <script src="script.js"></script> -->
-    <div id="top-nav">
-        <img src="yelp.png" alt="Smart Resume Builder Logo" height="28">
-        <h1>Resume Now</h1>
-    </div>
-    <div id="login">
-        <h1>Register</h1>
-        
-        <form action="/submit" method="post">
-            
-            <input type="text" id="username" name="username" placeholder="Enter Username">
-            <input type="password" id="password" name="password" placeholder="Enter Password" required>
-            <input type="password" id="confirm_password" name="password" placeholder="Confirm password" required>
-            
-            <input type="submit" value="submit">
-
-            <a href="index.html">Login</a>
-        </form>
-    </div>
+     <header>
+         <nav id="top-nav">
+             <img src="podcast.png" alt="Smart Resume Builder Logo" height="28">
+             <h1>Resume Now</h1>
+         </nav>
+     </header>
+     <main>
+         <section id="login">
+             <h1>Register</h1>
+             
+             <form action="/submit" method="post">
+                 
+                 <input type="text" id="username" name="username" placeholder="Enter Username">
+                 <input type="password" id="password" name="password" placeholder="Enter Password" required>
+                 <input type="password" id="confirm_password" name="password" placeholder="Confirm password" required>
+                 
+                 <input type="submit" value="submit">
+                 
+                 <p><a href="index.html">Login</a></p>
+            </form>
+        </section>
+    </main>
 </body>
 </html>
