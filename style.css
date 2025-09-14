@@ -87,9 +87,10 @@ body {
 
 #login a {
     padding: 20px;
+}
 
+a {
     -webkit-tap-highlight-color: transparent;
     -webkit-focus-ring-color: transparent;
     outline: none;
-
 }
