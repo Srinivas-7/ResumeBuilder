@@ -68,6 +68,8 @@ body {
 }
 
 #login input[type="submit"] {
+    -webkit-tap-highlight-color: transparent;  /* removes blue overlay */
+    outline: none;  /* removes focus outline */
     width: 40%;
     padding: 10px;
     border: none;
@@ -88,7 +90,8 @@ body {
 #login a {
     padding: 20px;
 }
-a:active{
+
+a:active {
     color: green;
 }
 
