@@ -148,3 +148,35 @@ body {
 .register a:hover {
     color: #000000;
 }
+
+/* Mobile responsiveness */
+@media (max-width: 400px) {
+    #login {
+        width: 90%; /* container takes most of screen */
+        padding: 20px;
+    }
+
+    #login h1 {
+        font-size: 22px; /* smaller title */
+    }
+
+    .input-box input {
+        height: 40px;
+        font-size: 14px;
+        padding: 0 40px 0 12px;
+    }
+
+    .btn {
+        height: 40px;
+        font-size: 14px;
+    }
+
+    #top-nav {
+        padding-left: 10px;
+        gap: 5px;
+    }
+
+    #Th {
+        font-size: 18px;
+    }
+}
