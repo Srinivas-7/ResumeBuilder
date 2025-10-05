@@ -1,36 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Resume Now</title>
+    <title>Resume Now - Register</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Patrick+Hand+SC&display=swap">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
+
 <body>
-    <!-- <script src="script.js"></script> -->
-     <header>
-         <nav id="top-nav">
-             <img src="podcast.png" alt="Smart Resume Builder Logo" height="28">
-             <h1>Resume Now</h1>
-         </nav>
-     </header>
-     <main>
-         <section id="login">
-             <h1>Register</h1>
-             
-             <form action="/submit" method="post">
-                 
-                 <input type="text" id="username" name="username" placeholder="Enter Username">
-                 <input type="password" id="password" name="password" placeholder="Enter Password" required>
-                 <input type="password" id="confirm_password" name="password" placeholder="Confirm password" required>
-                 
-                 <input type="submit" value="submit">
-                 
-                 <p><a href="index.html">Login</a></p>
+    <header>
+        <nav id="top-nav">
+            <img src="podcast.png" alt="Smart Resume Builder Logo" height="28">
+            <h1 id="Th">Resume Now</h1>
+        </nav>
+    </header>
+
+    <main>
+        <section id="login">
+            <h1>Register</h1>
+            <form action="/submit" method="post">
+                <div class="input-box">
+                    <input type="text" id="username" name="username" placeholder="Username" required>
+                    <i class='bx bxs-user'></i>
+                </div>
+
+                <div class="input-box">
+                    <input type="password" id="password" name="password" placeholder="Password" required>
+                    <i class='bx bxs-lock-alt'></i>
+                </div>
+
+                <div class="input-box">
+                    <input type="password" id="confirm_password" name="confirm_password"
+                        placeholder="Confirm Password" required>
+                    <i class='bx bxs-lock-alt'></i>
+                </div>
+
+                <input type="submit" value="Register" class="btn">
+
+                <p class="register">Already have an account? <a href="index.html">Login</a></p>
             </form>
         </section>
     </main>
 </body>
+
 </html>

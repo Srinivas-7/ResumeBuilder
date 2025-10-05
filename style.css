@@ -1,102 +1,150 @@
-body {
+/* Reset */
+* {
     margin: 0;
-    height: 100vh;
-    background-image: url('Grad.jpg');
-    background-size: cover;
-    position: relative;
-    display: flex;
-    flex-direction: column;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
 }
 
-/* title{
-    color: #DEE8CE;
-} */
+#Th{
+    font-size: 20px;
+}
+
+/* Body background */
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: url('Grad.jpg') center/cover no-repeat;
+}
+
+/* Top nav bar */
 #top-nav {
     font-family: "Patrick Hand SC", cursive;
-    font-weight: 1500;
-    font-style: normal;
-    background-color: #000000e5;
+    background-color: rgba(0, 0, 0, 0.3); /* soft purple overlay */
+
+    backdrop-filter: blur(20px);
     display: flex;
     align-items: center;
-    justify-content: flex-start;
     padding-left: 20px;
-    color: rgb(255, 255, 255);
-    height: 80px;
+    color: #fff;
+    height: 50px;
+    width: 100%;
     gap: 10px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000; 
 }
 
-/* Solid Login box */
+/* Login form container */
 #login {
-    background-color: rgba(255, 255, 255, 0.681);
-    margin: auto;
-    height: 350px;
-    max-width: 400px;
-    width: 90%;
-    margin: 0 auto;
-    justify-content: center;
-    border-radius: 20px;
-    margin: 100px auto;
-    text-align: left;
-}
-
-
-#login h1 {
-    font-family: 'Poppins', sans-serif;
+    background: rgba(255, 255, 255, 0.08);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(20px);
+    color: #000000;
+    border-radius: 15px;
+    width: 370px;
+    padding: 30px 25px;
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.2);
     text-align: center;
-    /* center only the heading */
+}
+
+/* Title */
+#login h1 {
     font-size: 28px;
-    font-weight: bold;
-    display: block;
-    padding: 10px;
+    margin-bottom: 20px;
 }
 
-#login form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+/* Input fields */
+.input-box {
+    position: relative;
+    width: 100%;
+    margin-bottom: 20px;
 }
 
-#login input[type="text"],
-#login input[type="password"] {
-    width: 60%;
-    padding: 4px;
-    margin-bottom: 15px;
-    border: 2px solid #000000;
-    border-radius: 5px;
-    box-sizing: border-box;
-    display: block;
-}
-
-#login input[type="submit"] {
-    -webkit-tap-highlight-color: transparent;  /* removes blue overlay */
-    outline: none;  /* removes focus outline */
-    width: 40%;
-    padding: 10px;
-    border: none;
-    background: rgb(0, 47, 255);
-    color: white;
-    font-size: 16px;
-    border-radius: 25px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-#login input[type="submit"]:hover {
-    background: #2f00ffe5;
-    transform: scale(1.05);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-}
-
-#login a {
-    padding: 20px;
-}
-
-a:active {
-    color: green;
-}
-
-a {
-    -webkit-tap-highlight-color: transparent;
-    -webkit-focus-ring-color: transparent;
+.input-box input {
+    width: 100%;
+    height: 45px;
+    background: transparent;
+    border: 2px solid rgba(0, 0, 0, 0.4);
+    border-radius: 40px;
+    padding: 0 45px 0 15px;
+    color: #000000;
+    font-size: 15px;
     outline: none;
+}
+
+.input-box input::placeholder {
+    color: #000000c5;
+}
+
+.input-box i {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 20px;
+    color: #000000;
+}
+
+/* Remember & forgot */
+.remember {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+    margin: 10px 0 20px;
+}
+
+.remember label {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.remember a {
+    color: #000000;
+    text-decoration: none;
+}
+
+.remember a:hover {
+    color: #000000;
+}
+
+/* Button */
+.btn {
+    width: 100%;
+    height: 45px;
+    background: #2c48ff;
+    border: none;
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 40px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+/* Register section */
+.register {
+    font-size: 14px;
+    margin-top: 15px;
+}
+
+.register a {
+    color: #000000;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.register a:hover {
+    color: #000000;
 }
