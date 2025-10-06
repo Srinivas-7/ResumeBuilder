@@ -19,7 +19,7 @@ body {
     align-items: center;
     justify-content: center;
     background: url('Grad.jpg') center/cover no-repeat;
-
+    text-align: center;
     padding-top: 80px;
 }
 
@@ -42,11 +42,9 @@ body {
     z-index: 1000;
 }
 
-#top-nav i {
-    text-shadow: 0 0 5px rgba(0,0,0,0.5);
-    font-size: 28px;
-    color: #80ff00;
-    /* adjust size */
+#login file{
+    backdrop-filter: black;
+    box-shadow: rgb(0, 0, 0);
 }
 
 /* Login form container */
@@ -170,9 +168,14 @@ body {
 
 /* Mobile responsiveness */
 @media (max-width: 400px) {
+    body {
+        padding-top: 60px; /* ✅ reduce top padding to keep it centered */
+        justify-content: flex-start; /* ✅ prevents vertical overflow */
+    }
+
     #login {
+        margin: 0 auto;
         width: 90%;
-        /* container takes most of screen */
         padding: 25px 20px;
     }
 
