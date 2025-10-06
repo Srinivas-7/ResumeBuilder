@@ -21,6 +21,15 @@ body {
     background: url('Grad.jpg') center/cover no-repeat;
     text-align: center;
     padding-top: 80px;
+    padding: 0;
+}
+
+main {
+    margin-top: 55px; /* same height as your nav bar */
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 /* Top nav bar */
@@ -171,7 +180,7 @@ body {
 /* Mobile responsiveness */
 @media (max-width: 400px) {
     body {
-        padding-top: 100px;
+        padding: 0;
         justify-content: flex-start;
     }
 
@@ -179,7 +188,7 @@ body {
         margin: 0 auto;
         width: 90%;
         max-width: 370px;
-        padding-top: 200px;
+        padding: 20px;
         box-sizing: border-box;
         justify-content: center;
         align-items: center;
