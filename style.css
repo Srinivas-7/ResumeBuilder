@@ -58,7 +58,6 @@ body {
     box-shadow: 0 0 25px rgba(0, 0, 0, 0.2);
     text-align: center;
     width: 370px;
-    /* max-width: 380px; */
     transition: all 0.3s ease-in-out;
     align-items: center;
     justify-content: center;
@@ -81,7 +80,7 @@ body {
     width: 100%;
     height: 45px;
     background: transparent;
-    border: 2px solid rgba(0, 0, 0, 0.8);
+    border: 2px solid rgba(0, 0, 0, 0.586);
     border-radius: 40px;
     padding: 0 45px 0 15px;
     color: #000000;
@@ -91,7 +90,7 @@ body {
 }
 
 .input-box input::placeholder {
-    color: #000000c5;
+    color: #00000098;
 }
 
 .input-box i {
@@ -172,10 +171,8 @@ body {
 /* Mobile responsiveness */
 @media (max-width: 400px) {
     body {
-        padding-top: 60px;
-        /* ✅ reduce top padding to keep it centered */
+        padding-top: 100px;
         justify-content: flex-start;
-        /* ✅ prevents vertical overflow */
     }
 
     #login {
