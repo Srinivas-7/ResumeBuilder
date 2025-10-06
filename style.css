@@ -60,6 +60,8 @@ body {
     width: 370px;
     /* max-width: 380px; */
     transition: all 0.3s ease-in-out;
+    align-items: center;
+    justify-content: center;
 }
 
 /* Title */
