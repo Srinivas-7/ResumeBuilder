@@ -19,6 +19,8 @@ body {
     align-items: center;
     justify-content: center;
     background: url('Grad.jpg') center/cover no-repeat;
+
+    padding-top: 80px;
 }
 
 /* Top nav bar */
@@ -29,7 +31,7 @@ body {
     backdrop-filter: blur(20px);
     display: flex;
     align-items: center;
-    padding-left: 20px;
+    padding: 0 20px;
     color: #fff;
     height: 55px;
     width: 100%;
@@ -57,7 +59,9 @@ body {
     padding: 30px 25px;
     box-shadow: 0 0 25px rgba(0, 0, 0, 0.2);
     text-align: center;
-    width: 370px;
+    width: 90%;
+    max-width: 380px; /* ✅ Keeps good limit on large screens */
+    transition: all 0.3s ease-in-out;
 }
 
 /* Title */
@@ -74,11 +78,10 @@ body {
 }
 
 .input-box input {
-    max-width: 370px;
     width: 100%;
     height: 45px;
     background: transparent;
-    border: 2px solid rgba(0, 0, 0, 0.4);
+    border: 2px solid rgba(0, 0, 0, 0.8);
     border-radius: 40px;
     padding: 0 45px 0 15px;
     color: #000000;
@@ -107,6 +110,8 @@ body {
     align-items: center;
     font-size: 14px;
     margin: 10px 0 20px;
+    gap: 5px;
+    flex-wrap: wrap; /* ✅ Added - makes elements stack on small screens */
 }
 
 .remember label {
@@ -168,7 +173,7 @@ body {
     #login {
         width: 90%;
         /* container takes most of screen */
-        padding: 20px;
+        padding: 25px 20px;
     }
 
     #login h1 {
@@ -188,8 +193,8 @@ body {
     }
 
     #top-nav {
-        padding-left: 10px;
-        gap: 5px;
+        padding: 0 12px; /* ✅ Narrower padding on mobile */
+        gap: 6px;
     }
 
     #Th {
