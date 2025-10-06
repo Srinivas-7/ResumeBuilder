@@ -42,7 +42,7 @@ body {
     z-index: 1000;
 }
 
-#login file{
+#login file {
     backdrop-filter: black;
     box-shadow: rgb(0, 0, 0);
 }
@@ -111,7 +111,8 @@ body {
     font-size: 14px;
     margin: 10px 0 20px;
     gap: 5px;
-    flex-wrap: wrap; /* ✅ Added - makes elements stack on small screens */
+    flex-wrap: wrap;
+    /* ✅ Added - makes elements stack on small screens */
 }
 
 .remember label {
@@ -171,14 +172,18 @@ body {
 /* Mobile responsiveness */
 @media (max-width: 400px) {
     body {
-        padding-top: 60px; /* ✅ reduce top padding to keep it centered */
-        justify-content: flex-start; /* ✅ prevents vertical overflow */
+        padding-top: 60px;
+        /* ✅ reduce top padding to keep it centered */
+        justify-content: flex-start;
+        /* ✅ prevents vertical overflow */
     }
 
     #login {
         margin: 0 auto;
         width: 90%;
+        max-width: 370px;
         padding: 25px 20px;
+        box-sizing: border-box;
     }
 
     #login h1 {
@@ -198,7 +203,8 @@ body {
     }
 
     #top-nav {
-        padding: 0 12px; /* ✅ Narrower padding on mobile */
+        padding: 0 12px;
+        /* ✅ Narrower padding on mobile */
         gap: 6px;
     }
 
