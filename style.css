@@ -171,7 +171,7 @@ body {
 /* Mobile responsiveness */
 @media (max-width: 400px) {
     body {
-        padding-top: 200px;
+        padding-top: 100px;
         justify-content: flex-start;
     }
 
@@ -179,7 +179,7 @@ body {
         margin: 0 auto;
         width: 90%;
         max-width: 370px;
-        padding: 20px;
+        padding-top: 200px;
         box-sizing: border-box;
         justify-content: center;
         align-items: center;
