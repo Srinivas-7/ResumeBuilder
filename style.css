@@ -25,7 +25,8 @@ body {
 }
 
 main {
-    margin-top: 55px; /* same height as your nav bar */
+    margin-top: 55px;
+    /* same height as your nav bar */
     width: 100%;
     display: flex;
     justify-content: center;
@@ -181,7 +182,7 @@ main {
 @media (max-width: 400px) {
     body {
         padding: 0;
-        justify-content: flex-start;
+        justify-content: center;
     }
 
     #login {
@@ -221,4 +222,5 @@ main {
     #top-nav i {
         font-size: 24px;
     }
+
 }
