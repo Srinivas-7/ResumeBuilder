@@ -62,41 +62,51 @@
   </main>
 
   <!-- Script: safely toggle mobile menu -->
-  <script>
-    document.addEventListener('DOMContentLoaded', function () {
+   <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Get the elements
       const menuToggle = document.getElementById('menu-toggle');
       const navLinks = document.getElementById('nav-links');
-      if (!menuToggle || !navLinks) return; // safety
 
-      // ensure closed on load
-      navLinks.classList.remove('active');
-      navLinks.setAttribute('aria-hidden', 'true');
-      menuToggle.setAttribute('aria-expanded', 'false');
+      if (menuToggle && navLinks) {
+        menuToggle.addEventListener('click', () => {
+          // 1. Toggle the 'active' class on the navigation links container
+          const isExpanded = navLinks.classList.toggle('active');
 
-      // click toggles the menu
-      menuToggle.addEventListener('click', function () {
-        const isOpen = navLinks.classList.toggle('active');
-        navLinks.setAttribute('aria-hidden', String(!isOpen));
-        menuToggle.setAttribute('aria-expanded', String(isOpen));
-        // toggle icon
-        const icon = menuToggle.querySelector('i');
-        if (icon) {
-          icon.classList.toggle('bx-menu');
-          icon.classList.toggle('bx-x');
-        }
-      });
-
-      // on resize, auto-close the menu if viewport goes to desktop width
-      window.addEventListener('resize', function () {
-        if (window.innerWidth > 768) {
-          navLinks.classList.remove('active');
-          navLinks.setAttribute('aria-hidden', 'true');
-          menuToggle.setAttribute('aria-expanded', 'false');
-          const icon = menuToggle.querySelector('i');
-          if (icon) { icon.classList.add('bx-menu'); icon.classList.remove('bx-x'); }
-        }
-      });
+          // 2. Update ARIA attributes for accessibility
+          menuToggle.setAttribute('aria-expanded', isExpanded);
+          navLinks.setAttribute('aria-hidden', !isExpanded);
+          
+          // Optional: Change icon from menu to close when active
+          const icon = menuToggle.querySelector('.bx');
+          if (icon) {
+            icon.classList.toggle('bx-menu', !isExpanded);
+            icon.classList.toggle('bx-x', isExpanded);
+          }
+        });
+        
+        // Optional: Close the menu when a link is clicked (useful on mobile)
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                // Check if the link is clicked on a mobile view (where 'active' class exists)
+                if(navLinks.classList.contains('active')) {
+                    navLinks.classList.remove('active');
+                    menuToggle.setAttribute('aria-expanded', 'false');
+                    navLinks.setAttribute('aria-hidden', 'true');
+                    const icon = menuToggle.querySelector('.bx');
+                    if (icon) {
+                        icon.classList.remove('bx-x');
+                        icon.classList.add('bx-menu');
+                    }
+                }
+            });
+        });
+        
+      } else {
+        console.error("Menu toggle button or navigation links element not found.");
+      }
     });
   </script>
+    
 </body>
 </html>

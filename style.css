@@ -3,7 +3,12 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  /* Using Poppins from the link above */
   font-family: "Poppins", sans-serif;
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-style: normal;
 }
 
 /* -------------------- BODY -------------------- */
@@ -19,6 +24,8 @@ body {
   text-align: center;
   padding-top: 80px;
   transition: all 0.3s ease-in-out;
+  /* FIX: Force vertical scrollbar to prevent layout shift between pages */
+  overflow-y: scroll;
 }
 
 /* -------------------- NAVBAR -------------------- */
@@ -28,6 +35,7 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 14px 60px;
+  /* Original Desktop Padding */
   background-color: rgba(0, 0, 0, 0.7);
   backdrop-filter: blur(20px);
   color: #fff;
@@ -84,6 +92,23 @@ body {
   font-weight: 500;
 }
 
+.navbar .nav-buttons a.action-link {
+  background: none;
+  color: #fff;
+  padding: 8px 18px;
+  border-radius: 10px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.2s ease-in-out;
+}
+
+.navbar .nav-buttons a.action-link:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  transform: none;
+}
+
+
 .navbar .nav-buttons .download {
   background: #fff;
   color: #000;
@@ -98,6 +123,24 @@ body {
   background: #7fff00;
   color: #000;
   transform: scale(1.05);
+}
+
+/* -------------------- MENU TOGGLE -------------------- */
+/* By default, hide the toggle button on desktop */
+.menu-toggle {
+  display: none;
+  font-size: 2rem;
+  cursor: pointer;
+  color: #fff;
+  transition: 0.3s ease;
+  background: none;
+  border: none;
+  padding: 5px;
+  border-radius: 8px;
+}
+
+.menu-toggle:hover {
+  background: rgba(255, 255, 255, 0.1);
 }
 
 /* -------------------- LOGIN BOX -------------------- */
@@ -222,6 +265,7 @@ main {
 }
 
 /* -------------------- MENU TOGGLE -------------------- */
+/* By default, hide the toggle button on desktop */
 .menu-toggle {
   display: none;
   font-size: 2rem;
@@ -230,14 +274,23 @@ main {
   transition: 0.3s ease;
   background: none;
   border: none;
+  /* Add hover effect for better UX */
+  padding: 5px;
+  border-radius: 8px;
+}
+
+.menu-toggle:hover {
+  background: rgba(255, 255, 255, 0.1);
 }
 
 /* -------------------- RESPONSIVE -------------------- */
 @media (max-width: 768px) {
   .navbar {
     padding: 14px 20px;
+    /* Mobile Padding Override */
   }
 
+  /* Show the toggle button on mobile */
   .menu-toggle {
     display: block;
   }
@@ -256,11 +309,16 @@ main {
     padding: 15px 0;
     z-index: 999;
     border-top: 1px solid rgba(255, 255, 255, 0.1);
+    transition: opacity 0.3s ease-in-out;
+    opacity: 0;
+    pointer-events: none;
   }
 
-  /* only visible when toggled */
+  /* only visible when toggled by JS */
   .nav-links.active {
-    display: flex !important;
+    display: flex;
+    opacity: 1;
+    pointer-events: all;
   }
 
   .nav-links a {
@@ -276,29 +334,65 @@ main {
   }
 
   .nav-buttons {
+    /* Hide the sign-in/login buttons on mobile navbar */
     display: none;
   }
 
-  main {
-    margin-top: 160px;
+  /* Mobile Nav Buttons Section (moved inside .nav-links for mobile menu) */
+  .nav-links .nav-buttons-mobile {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 15px 20px 5px 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
   }
 
-  #login {
-    width: 90%;
-    padding: 25px 20px;
+  .nav-links .nav-buttons-mobile .signin-mobile {
+    padding: 10px 0;
+    color: #7fff00;
+    text-decoration: none;
+    font-weight: 600;
+    cursor: pointer;
   }
 
-  #login h1 {
-    font-size: 22px;
-  }
-
-  .btn {
-    height: 42px;
-    font-size: 14px;
+  .nav-links .nav-buttons-mobile .login-mobile {
+    padding: 10px;
+    display: block;
+    background: #7fff00;
+    color: #000;
+    border-radius: 8px;
+    font-weight: 700;
+    cursor: pointer;
   }
 }
 
 /* -------------------- UX POLISH -------------------- */
 .nav-links a:focus {
-  outline: none;
+  outline: 1px solid #7fff00;
+  border-radius: 4px;
+}
+
+main {
+  margin-top: 160px;
+}
+
+#login {
+  width: 90%;
+  max-width: 360px;
+  padding: 25px 20px;
+}
+
+#login h1 {
+  font-size: 22px;
+}
+
+.btn {
+  height: 42px;
+  font-size: 14px;
+}
+
+/* -------------------- UX POLISH -------------------- */
+.nav-links a:focus {
+  outline: 1px solid #7fff00;
+  border-radius: 4px;
 }

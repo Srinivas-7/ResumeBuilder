@@ -6,13 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Resume Now - Register</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Patrick+Hand+SC&display=swap">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
 
 <body>
+    <!-- NAVBAR -->
     <header class="navbar">
         <div class="logo-section">
             <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="#80ff00" viewBox="0 0 24 24">
@@ -42,6 +40,7 @@
     </header>
 
 
+
     <main>
         <section id="login">
             <h1>Register</h1>
@@ -68,42 +67,52 @@
             </form>
         </section>
     </main>
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const menuToggle = document.getElementById('menu-toggle');
-            const navLinks = document.getElementById('nav-links');
-            if (!menuToggle || !navLinks) return; // safety
+    <!-- Script: safely toggle mobile menu -->
+   <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Get the elements
+      const menuToggle = document.getElementById('menu-toggle');
+      const navLinks = document.getElementById('nav-links');
 
-            // ensure closed on load
-            navLinks.classList.remove('active');
-            navLinks.setAttribute('aria-hidden', 'true');
-            menuToggle.setAttribute('aria-expanded', 'false');
+      if (menuToggle && navLinks) {
+        menuToggle.addEventListener('click', () => {
+          // 1. Toggle the 'active' class on the navigation links container
+          const isExpanded = navLinks.classList.toggle('active');
 
-            // click toggles the menu
-            menuToggle.addEventListener('click', function () {
-                const isOpen = navLinks.classList.toggle('active');
-                navLinks.setAttribute('aria-hidden', String(!isOpen));
-                menuToggle.setAttribute('aria-expanded', String(isOpen));
-                // toggle icon
-                const icon = menuToggle.querySelector('i');
-                if (icon) {
-                    icon.classList.toggle('bx-menu');
-                    icon.classList.toggle('bx-x');
-                }
-            });
-
-            // on resize, auto-close the menu if viewport goes to desktop width
-            window.addEventListener('resize', function () {
-                if (window.innerWidth > 768) {
+          // 2. Update ARIA attributes for accessibility
+          menuToggle.setAttribute('aria-expanded', isExpanded);
+          navLinks.setAttribute('aria-hidden', !isExpanded);
+          
+          // Optional: Change icon from menu to close when active
+          const icon = menuToggle.querySelector('.bx');
+          if (icon) {
+            icon.classList.toggle('bx-menu', !isExpanded);
+            icon.classList.toggle('bx-x', isExpanded);
+          }
+        });
+        
+        // Optional: Close the menu when a link is clicked (useful on mobile)
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                // Check if the link is clicked on a mobile view (where 'active' class exists)
+                if(navLinks.classList.contains('active')) {
                     navLinks.classList.remove('active');
-                    navLinks.setAttribute('aria-hidden', 'true');
                     menuToggle.setAttribute('aria-expanded', 'false');
-                    const icon = menuToggle.querySelector('i');
-                    if (icon) { icon.classList.add('bx-menu'); icon.classList.remove('bx-x'); }
+                    navLinks.setAttribute('aria-hidden', 'true');
+                    const icon = menuToggle.querySelector('.bx');
+                    if (icon) {
+                        icon.classList.remove('bx-x');
+                        icon.classList.add('bx-menu');
+                    }
                 }
             });
         });
-    </script>
+        
+      } else {
+        console.error("Menu toggle button or navigation links element not found.");
+      }
+    });
+  </script>
 </body>
 
 </html>
