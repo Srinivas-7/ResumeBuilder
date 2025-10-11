@@ -1,59 +1,84 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Resume Now</title>
-    <link rel="stylesheet" href="style.css" />
-    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Resume Now</title>
+
+  <!-- Link your CSS as usual (add ?v=2 while testing if caching is an issue) -->
+  <link rel="stylesheet" href="style.css?v=2" />
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
 </head>
-
 <body>
-    <header class="navbar">
-        <div class="logo-section">
-            <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="#80ff00" viewBox="0 0 24 24">
-                <path
-                    d="M14.71 2.29A1 1 0 0 0 14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8c0-.27-.11-.52-.29-.71zM7 7h4v2H7zm10 10H7v-2h10zm0-4H7v-2h10zm-4-4V3.5L18.5 9z" />
-            </svg>
-            <h1>ResumeNow</h1>
-        </div>
+  <!-- NAVBAR -->
+  <header class="navbar">
+    <div class="logo-section">
+      <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="#80ff00" viewBox="0 0 24 24">
+        <path d="M14.71 2.29A1 1 0 0 0 14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8c0-.27-.11-.52-.29-.71zM7 7h4v2H7zm10 10H7v-2h10zm0-4H7v-2h10zm-4-4V3.5L18.5 9z"/>
+      </svg>
+      <h1>ResumeNow</h1>
+    </div>
 
-        <!-- Hamburger Icon (Visible on Mobile) -->
-        <div class="menu-toggle" id="menu-toggle">
-            <i class='bx bx-menu'></i>
-        </div>
+    <!-- Hamburger (mobile only) -->
+    <button id="menu-toggle" class="menu-toggle" aria-expanded="false" aria-label="Toggle menu">
+      <i class="bx bx-menu"></i>
+    </button>
 
-        <!-- Nav Links -->
-        <nav class="nav-links" id="nav-links">
-            <a href="#">Home</a>
-            <a href="#">Templates</a>
-            <a href="#">Pricing</a>
-            <a href="#">Docs</a>
-        </nav>
+    <!-- Nav links -->
+    <nav id="nav-links" class="nav-links" aria-hidden="true">
+      <a href="#">Home</a>
+      <a href="#">Templates</a>
+      <a href="#">Pricing</a>
+      <a href="#">Docs</a>
+    </nav>
 
-        <!-- Right Buttons -->
-        <div class="nav-buttons">
-            <a href="Reg.html" class="signin">Sign In</a>
-            <a href="index.html" class="download">Login</a>
-        </div>
-    </header>
+    <div class="nav-buttons">
+      <a href="Reg.html" class="signin">Sign In</a>
+      <a href="index.html" class="download">Login</a>
+    </div>
+  </header>
 
+  <!-- LOGIN BOX -->
+  <main>
+   
+  </main>
 
-    <script>
-        const menuToggle = document.getElementById("menu-toggle");
-        const navLinks = document.getElementById("nav-links");
+  <!-- Script: safely toggle mobile menu -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const menuToggle = document.getElementById('menu-toggle');
+      const navLinks = document.getElementById('nav-links');
+      if (!menuToggle || !navLinks) return; // safety
 
-        menuToggle.addEventListener("click", () => {
-            navLinks.classList.toggle("active");
-            menuToggle.classList.toggle("open");
+      // ensure closed on load
+      navLinks.classList.remove('active');
+      navLinks.setAttribute('aria-hidden', 'true');
+      menuToggle.setAttribute('aria-expanded', 'false');
 
-            // Change icon between ☰ and ✖
-            const icon = menuToggle.querySelector("i");
-            icon.classList.toggle("bx-menu");
-            icon.classList.toggle("bx-x");
-        });
-    </script>
+      // click toggles the menu
+      menuToggle.addEventListener('click', function () {
+        const isOpen = navLinks.classList.toggle('active');
+        navLinks.setAttribute('aria-hidden', String(!isOpen));
+        menuToggle.setAttribute('aria-expanded', String(isOpen));
+        // toggle icon
+        const icon = menuToggle.querySelector('i');
+        if (icon) {
+          icon.classList.toggle('bx-menu');
+          icon.classList.toggle('bx-x');
+        }
+      });
+
+      // on resize, auto-close the menu if viewport goes to desktop width
+      window.addEventListener('resize', function () {
+        if (window.innerWidth > 768) {
+          navLinks.classList.remove('active');
+          navLinks.setAttribute('aria-hidden', 'true');
+          menuToggle.setAttribute('aria-expanded', 'false');
+          const icon = menuToggle.querySelector('i');
+          if (icon) { icon.classList.add('bx-menu'); icon.classList.remove('bx-x'); }
+        }
+      });
+    });
+  </script>
 </body>
-
 </html>
