@@ -22,18 +22,26 @@
             <h1>ResumeNow</h1>
         </div>
 
-        <nav class="nav-links">
+        <!-- Hamburger Icon (Visible on Mobile) -->
+        <div class="menu-toggle" id="menu-toggle">
+            <i class='bx bx-menu'></i>
+        </div>
+
+        <!-- Nav Links -->
+        <nav class="nav-links" id="nav-links">
             <a href="#">Home</a>
             <a href="#">Templates</a>
             <a href="#">Pricing</a>
             <a href="#">Docs</a>
         </nav>
 
+        <!-- Right Buttons -->
         <div class="nav-buttons">
             <a href="Reg.html" class="signin">Sign In</a>
             <a href="index.html" class="download">Login</a>
         </div>
     </header>
+
 
     <main>
         <section id="login">
@@ -62,12 +70,17 @@
         </section>
     </main>
     <script>
-        // Toggle mobile menu
         const menuToggle = document.getElementById("menu-toggle");
         const navLinks = document.getElementById("nav-links");
 
         menuToggle.addEventListener("click", () => {
             navLinks.classList.toggle("active");
+            menuToggle.classList.toggle("open");
+
+            // Change icon between ☰ and ✖
+            const icon = menuToggle.querySelector("i");
+            icon.classList.toggle("bx-menu");
+            icon.classList.toggle("bx-x");
         });
     </script>
 </body>

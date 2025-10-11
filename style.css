@@ -220,6 +220,15 @@ main {
   text-decoration: underline;
 }
 
+.menu-toggle {
+  display: none;
+  font-size: 2rem;
+  cursor: pointer;
+  color: #333;
+  transition: 0.3s ease;
+}
+
+
 /* -------------------- RESPONSIVE -------------------- */
 @media (max-width: 480px) {
   .navbar {
@@ -244,4 +253,44 @@ main {
     height: 42px;
     font-size: 14px;
   }
+  
+  @media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    background: #fff;
+    position: absolute;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    padding: 15px 0;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    z-index: 99;
+    transition: 0.3s ease-in-out;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .nav-links a {
+    display: block;
+    padding: 12px 0;
+    color: #333;
+    font-weight: 500;
+  }
+
+  .nav-links a:hover {
+    background: #f0f0f0;
+  }
+
+  .nav-buttons {
+    display: none;
+  }
+}
 }

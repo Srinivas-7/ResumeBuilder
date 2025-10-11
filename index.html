@@ -2,74 +2,89 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Resume Now</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
-        rel="stylesheet">
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Resume Now</title>
+
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
 
 <body>
-    <!-- ===== NAVBAR ===== -->
-    <header class="navbar">
-        <div class="logo-section">
-            <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="#80ff00" viewBox="0 0 24 24">
-                <path
-                    d="M14.71 2.29A1 1 0 0 0 14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8c0-.27-.11-.52-.29-.71zM7 7h4v2H7zm10 10H7v-2h10zm0-4H7v-2h10zm-4-4V3.5L18.5 9z" />
-            </svg>
-            <h1>ResumeNow</h1>
+  <!-- ===== NAVBAR ===== -->
+  <header class="navbar">
+    <div class="logo-section">
+      <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="#80ff00" viewBox="0 0 24 24">
+        <path
+          d="M14.71 2.29A1 1 0 0 0 14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8c0-.27-.11-.52-.29-.71zM7 7h4v2H7zm10 10H7v-2h10zm0-4H7v-2h10zm-4-4V3.5L18.5 9z" />
+      </svg>
+      <h1>ResumeNow</h1>
+    </div>
+
+    <!-- Hamburger Icon (Visible on Mobile) -->
+    <div class="menu-toggle" id="menu-toggle">
+      <i class='bx bx-menu'></i>
+    </div>
+
+    <!-- Nav Links -->
+    <nav class="nav-links" id="nav-links">
+      <a href="#">Home</a>
+      <a href="#">Templates</a>
+      <a href="#">Pricing</a>
+      <a href="#">Docs</a>
+    </nav>
+
+    <!-- Right Buttons -->
+    <div class="nav-buttons">
+      <a href="Reg.html" class="signin">Sign In</a>
+      <a href="index.html" class="download">Login</a>
+    </div>
+  </header>
+
+  <!-- ===== LOGIN BOX ===== -->
+  <main>
+    <section id="login">
+      <h1>Login</h1>
+      <form action="/submit" method="post">
+        <div class="input-box">
+          <input type="text" id="username" name="username" placeholder="Username" required>
+          <i class='bx bxs-user'></i>
         </div>
 
-        <nav class="nav-links">
-            <a href="#">Home</a>
-            <a href="#">Templates</a>
-            <a href="#">Pricing</a>
-            <a href="#">Docs</a>
-        </nav>
-
-        <div class="nav-buttons">
-            <a href="Reg.html" class="signin">Sign In</a>
-            <a href="index.html" class="download">Login</a>
+        <div class="input-box">
+          <input type="password" id="password" name="password" placeholder="Password" required>
+          <i class='bx bxs-lock-alt'></i>
         </div>
-    </header>
 
-    <!-- ===== LOGIN BOX ===== -->
-    <main>
-        <section id="login">
-            <h1>Login</h1>
-            <form action="/submit" method="post">
-                <div class="input-box">
-                    <input type="text" id="username" name="username" placeholder="Username" required>
-                    <i class='bx bxs-user'></i>
-                </div>
+        <div class="remember">
+          <label><input type="checkbox"> Remember Me</label>
+          <a href="forgot.html" id="For">Forget Password?</a>
+        </div>
 
-                <div class="input-box">
-                    <input type="password" id="password" name="password" placeholder="Password" required>
-                    <i class='bx bxs-lock-alt'></i>
-                </div>
+        <input type="submit" value="Login" class="btn">
 
-                <div class="remember">
-                    <label><input type="checkbox"> Remember Me</label>
-                    <a href="forgot.html" id="For">Forget Password?</a>
-                </div>
+        <p class="register">Don't have an account? <a href="Reg.html">Create an Account</a></p>
+      </form>
+    </section>
+  </main>
 
-                <input type="submit" value="Login" class="btn">
+  <!-- ===== SCRIPT ===== -->
+  <script>
+    const menuToggle = document.getElementById("menu-toggle");
+    const navLinks = document.getElementById("nav-links");
 
-                <p class="register">Don't have an account? <a href="Reg.html">Create an Account</a></p>
-            </form>
-        </section>
-    </main>
-    <script>
-        // Toggle mobile menu
-        const menuToggle = document.getElementById("menu-toggle");
-        const navLinks = document.getElementById("nav-links");
+    menuToggle.addEventListener("click", () => {
+      navLinks.classList.toggle("active");
+      menuToggle.classList.toggle("open");
 
-        menuToggle.addEventListener("click", () => {
-            navLinks.classList.toggle("active");
-        });
-    </script>
+      // Change icon between ☰ and ✖
+      const icon = menuToggle.querySelector("i");
+      icon.classList.toggle("bx-menu");
+      icon.classList.toggle("bx-x");
+    });
+  </script>
 </body>
 
 </html>
