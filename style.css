@@ -254,43 +254,42 @@ main {
     font-size: 14px;
   }
   
-  @media (max-width: 768px) {
   .menu-toggle {
     display: block;
   }
 
   .nav-links {
-    display: none;
+    display: none; /* Hidden by default */
     flex-direction: column;
-    background: #fff;
+    background: rgba(0, 0, 0, 0.9);
+    backdrop-filter: blur(20px);
     position: absolute;
     top: 70px;
     left: 0;
     width: 100%;
     text-align: center;
     padding: 15px 0;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     z-index: 99;
-    transition: 0.3s ease-in-out;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
   }
 
   .nav-links.active {
-    display: flex;
+    display: flex; /* Show only when toggled */
   }
 
   .nav-links a {
     display: block;
-    padding: 12px 0;
-    color: #333;
+    padding: 14px 0;
+    color: #fff;
     font-weight: 500;
+    transition: background 0.2s;
   }
 
   .nav-links a:hover {
-    background: #f0f0f0;
+    background: rgba(255, 255, 255, 0.1);
   }
 
   .nav-buttons {
     display: none;
   }
-}
 }
